@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
         <title>Aliquid Tecnology</title>
@@ -30,8 +31,7 @@
         <!--===============================================================================================-->
     </h:head>
     <h:body>
-
-        <div class="limiter">
+         <div class="limiter">
             <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
                 <div class="wrap-login100">
                     <h:form class="login100-form validate-form">
@@ -40,32 +40,32 @@
                         </span>
 
                         <span class="login100-form-title p-b-34 p-t-27">
-                            Log in
+                            Registrarse
                         </span>
-
-                        <div class="wrap-input100 validate-input" data-validate = "Enter username">
-                            <input class="input100" type="text" name="username" placeholder="Username"/>
+                        
+                         <div class="wrap-input100 validate-input" data-validate = "Correo Electronico">
+                             <h:inputText class="input100" pt:placeholder="Correo electrónico" value="#{userController.usuario.correo}" ></h:inputText>
                             <span class="focus-input100" data-placeholder="&#xf207;"></span>
                         </div>
 
-                        <div class="wrap-input100 validate-input" data-validate="Enter password">
-                            <input class="input100" type="password" name="pass" placeholder="Password"/>
+                        <div class="wrap-input100 validate-input" data-validate = "Ingresa tu usuario">
+                            <h:inputText class="input100" pt:placeholder="Usuario" value="#{userController.usuario.userName}" ></h:inputText>
+                            <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="Contraseña">
+                            <h:inputText class="input100" pt:placeholder="Contraseña" value="#{userController.usuario.contraseña}" ></h:inputText>
                             <span class="focus-input100" data-placeholder="&#xf191;"></span>
                         </div>
 
                         
 
                         <div class="container-login100-form-btn">
-                            <button class="login100-form-btn">
-                                Iniciar Sesion
-                            </button>
+                            
+                            <h:commandButton  class="login100-form-btn" action="#{userController.registrar()}" value="Registrarse"></h:commandButton>
                         </div>
 
-                        <div class="text-center p-t-90">
-                            <a class="txt1" href="#">
-                                Sign Up 
-                            </a>
-                        </div>
+                        
                     </h:form>
                 </div>
             </div>

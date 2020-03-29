@@ -1,2 +1,4 @@
 upb\edu\co\aliquidtecnology\resources\JavaEE8Resource.class
 upb\edu\co\aliquidtecnology\JAXRSConfiguration.class
+Modelo\Usuario.class
+Controlador\userController.class
