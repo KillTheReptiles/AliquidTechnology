@@ -46,21 +46,19 @@
 
                         <div class="wrap-input100 validate-input" data-validate = "Ingresar usuario">
                             
-                           <h:inputText class="input100" pt:placeholder="Usuario" value="" ></h:inputText>
+                            <h:inputText class="input100" pt:placeholder="Usuario" value="#{userController.usuario.userName}" ></h:inputText>
                             <span class="focus-input100" data-placeholder="&#xf207;"></span>
                         </div>
 
                         <div class="wrap-input100 validate-input" data-validate="Ingresar contraseña">
-                            <h:inputText class="input100" pt:placeholder="Contraseña" value="" ></h:inputText>
+                            <h:inputSecret class="input100" pt:placeholder="Contraseña" value="#{userController.usuario.contraseña}" ></h:inputSecret>
                             <span class="focus-input100" data-placeholder="&#xf191;"></span>
                         </div>
 
                         
 
                         <div class="container-login100-form-btn">
-                            <button class="login100-form-btn">
-                                Iniciar Sesion
-                            </button>
+                            <h:commandButton  class="login100-form-btn" action="#{userController.login()}" value="Iniciar Sesion"></h:commandButton>
                         </div>
 
                         <div class="text-center p-t-90">

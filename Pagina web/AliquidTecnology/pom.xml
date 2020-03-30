@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>upb.edu.co</groupId>
-    <artifactId>AliquidTecnology</artifactId>
+    <artifactId>AliquidTechnology</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>AliquidTecnology-1.0-SNAPSHOT</name>
+    <name>AliquidTechnology-1.0-SNAPSHOT</name>
     
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -18,14 +18,30 @@
     
     <dependencies>
         <dependency>
+         <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>2.8.6</version>
+        </dependency>
+        
+        
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>${jakartaee}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+
+            <groupId>com.googlecode.json-simple</groupId>
+
+            <artifactId>json-simple</artifactId>
+
+            <version>1.1.1</version>
+
+        </dependency>
     </dependencies>
     
-     <build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

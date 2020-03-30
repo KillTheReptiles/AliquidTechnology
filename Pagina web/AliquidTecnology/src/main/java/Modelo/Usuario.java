@@ -49,4 +49,11 @@ public class Usuario {
         this.contraseña = contraseña;
     }
     
+    @Override
+    public String toString()
+    {
+        return "Correo: "+getCorreo()+";Username: "+getUserName()+";Contrasena: "+getContraseña();
+        
+    }
+    
 }
