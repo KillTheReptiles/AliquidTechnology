@@ -21,7 +21,7 @@ import javax.json.JsonObject;
  */
 @Named(value = "userController")
 @SessionScoped
-public class userController implements Serializable {
+public class UserController implements Serializable {
    Usuario usuario;
    private String userName;
     private String correo;
@@ -71,7 +71,7 @@ public class userController implements Serializable {
     /**
      * Creates a new instance of userController
      */
-    public userController() {
+    public UserController() {
         usuario= new Usuario();
         listausuario= new ArrayList<Usuario>();
     }
