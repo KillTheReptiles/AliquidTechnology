@@ -5,7 +5,7 @@
  */
 package Controlador;
 
-import Modelo.Usuario;
+import modelo.Usuario;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;

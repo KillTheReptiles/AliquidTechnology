@@ -1,5 +1,6 @@
-util\UsuarioUtil.class
+upb\edu\co\dao\UsuarioDAO.class
 upb\edu\co\aliquidtecnology\resources\JavaEE8Resource.class
 upb\edu\co\aliquidtecnology\JAXRSConfiguration.class
-Modelo\Usuario.class
-Controlador\UserController.class
+controlador\UserController.class
+upb\edu\co\dao\MongoDAO.class
+modelo\Usuario.class
