@@ -24,64 +24,43 @@ public class UserController implements Serializable {
     private List<Usuario> listado;
 
     @EJB
-    private UsuarioDAO ejbDao;
-
-
-    @EJB
-    private MongoDAO dao;
+    UsuarioDAO ejbFacade;
+    
 
     public UserController() {
+        
+        usuarioAutenticado = null;
+        
         usuario = new Usuario();
     }
-
-    
 
     public String login() throws IOException {
-    FacesContext ctx = FacesContext.getCurrentInstance();
         
-         usuarioAutenticado = (Usuario) ejbDao.encontrarUsuarioPorLogin(usuario.getCorreo(), usuario.getContraseña());
+        
+
+        usuarioAutenticado = ejbFacade.authUser(usuario.getUsuario(), usuario.getContraseña());
 
         if (usuarioAutenticado != null) {
-           
-            ctx.getExternalContext().redirect("dashboard.xhtml");
+
+            return "dashboard?faces-redirect=true";
+
         } else {
-            
-            ctx.getExternalContext().redirect("index.xhtml");
+
+            return "index?faces-redirect=true";
+
         }
-        
-        return "index?redirect=true";
+
+      
 
     }
-
-    
-  
-    
-    public String registrar() throws IOException {
-        FacesContext context = FacesContext.getCurrentInstance();
-        ExternalContext ex = context.getExternalContext();
-//F PORQUE NO SABEMOS
-       
-        usuario = new Usuario();
-        return "index?redirect=true";
-
-    }
-
-    public List<Usuario> getListado(){
-        listado = ejbDao.listar();
-        return listado;
-    }
+   
+ 
 
     public void setListado(List<Usuario> listado) {
         this.listado = listado;
     }
 
-    public MongoDAO getDao() {
-        return dao;
-    }
 
-    public void setDao(MongoDAO dao) {
-        this.dao = dao;
-    }
 
     public Usuario getUsuario() {
         return usuario;
@@ -98,17 +77,7 @@ public class UserController implements Serializable {
     public void setUsuarioAutenticado(Usuario usuarioAutenticado) {
         this.usuarioAutenticado = usuarioAutenticado;
     }
-
-    public UsuarioDAO getEjbDao() {
-        return ejbDao;
-    }
-
-    public void setEjbDao(UsuarioDAO ejbDao) {
-        this.ejbDao = ejbDao;
-    }
-
-
-
+    
 
 
 }

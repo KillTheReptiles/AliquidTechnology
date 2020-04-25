@@ -5,7 +5,6 @@
  */
 package upb.edu.co.dao;
 
-
 import java.sql.Connection;
 import java.util.List;
 import java.util.logging.Level;
@@ -16,6 +15,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import modelo.Usuario;
@@ -25,76 +25,39 @@ import modelo.Usuario;
  * @author CharliePC
  */
 @Stateless
-public class UsuarioDAO {
+public class UsuarioDAO extends AbstractFacade<Usuario> {
+//Web_DBAccessPU
 
-    private final static Logger LOGGER = Logger.getLogger("dao.UsuarioDAO");
-
-    private EntityManagerFactory factory;
+    @PersistenceContext(unitName = "Web_DBAccessPU")
     private EntityManager em;
 
-    public void crear(Usuario entity) {
-        em.persist(entity);
+    @Override
+    protected EntityManager getEntityManager() {
+        return em;
     }
 
-    public void editar(Usuario entity) {
-        em.merge(entity);
+    public UsuarioDAO() {
+        super(Usuario.class);
     }
 
-    public void eliminar(Usuario entity) {
-        em.remove(em.merge(entity));
-    }
+    public Usuario authUser(String user, String pass) {
+        Usuario found = null;
+        Query q = getEntityManager().createQuery("Select u from Usuario u where u.usuario=:user and u.contraseña =:pass");
+        q.setParameter("user", user);
 
-    public Usuario encontrarUsuario(String correo) {
-        return em.find(Usuario.class, correo);
-    }
-
-    public void crearConexion() {
-        factory = Persistence.createEntityManagerFactory("Web_DBAccessPU");
-        em = factory.createEntityManager();
-    }
-
-    public void cerrarConexion() {
-        em.close();
-    }
-
-    public Object encontrarUsuarioPorLogin(String correo, String contraseña) {
-
-        crearConexion();
-        Query q = em.createQuery("SELECT u FROM Usuario u WHERE u.correo = :mail  AND u.contraseña = :pass ");
-        q.setParameter("mail", correo);
-        q.setParameter("pass", contraseña);
+        q.setParameter("pass", pass);
 
         try {
-            return (Object)q.getSingleResult();
-        } catch (NoResultException ex) {
-            LOGGER.severe("ERROR AL CONSULTAR");
-            return null;
-        } catch (NonUniqueResultException ex2) {
-            LOGGER.severe("ERROR AL CONSULTAR . DUPLICADO");
-            return null;
-        } finally {
-            LOGGER.info("CONEXIÓN CERRADA");
-            cerrarConexion();
+            found = (Usuario) q.getSingleResult();
+        } catch  (NoResultException e){
+            Logger.getLogger("UsuarioDAO").log(Level.SEVERE, "No se encontraron registros");
+        }catch  (Exception e){
+            Logger.getLogger("UsuarioDAO").log(Level.SEVERE, "Error");
         }
 
+        return found;
     }
 
-    public List<Usuario> listar() {
-
-        crearConexion();
-        Query q = em.createQuery("SELECT u FROM Usuario u");
-
-        try {
-            return q.getResultList();
-        } catch (Exception ex) {
-            LOGGER.severe("ERROR AL CONSULTAR");
-            return null;
-        } finally {
-            LOGGER.info("CONEXIÓN CERRADA");
-            cerrarConexion();
-
-        }
-
-    }
-
+        
+    
 }

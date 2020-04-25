@@ -1,6 +1,9 @@
+upb\edu\co\dao\AbstractFacade.class
 upb\edu\co\dao\UsuarioDAO.class
 upb\edu\co\aliquidtecnology\resources\JavaEE8Resource.class
 upb\edu\co\aliquidtecnology\JAXRSConfiguration.class
+controlador\chatbotController.class
 controlador\UserController.class
 upb\edu\co\dao\MongoDAO.class
+controlador\usuarioController.class
 modelo\Usuario.class
