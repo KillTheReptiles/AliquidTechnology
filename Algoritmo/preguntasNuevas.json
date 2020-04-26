@@ -1,0 +1,38 @@
+[
+    {"tag":"saludos",
+    "preguntas":["Hola","buenos dias","holi"],
+    "respuestas":"Hola, me llamo Ali, y estoy para atenderte. ¿Qué tipo de computador necesitas? Tenemos para jugar,de oficina,notebook,netbook,ultrabook y 2 en 1."
+    },
+    {"tag":"despedidas",
+    "preguntas":["adios","chao","hasta luego","bye"],
+    "respuestas":"Adios, un placer atenderte"
+    },
+    {"tag":"precio",
+    "preguntas":["De que precio hay","barato","caro"],
+    "respuestas":"Tenemos las siguientes categorias: gaming, oficina, notebook, 2 en 1 netbook,ultrabook"
+    },
+    {"tag":"gaming",
+    "preguntas":["gaming","juegos","jugar","gamer"],
+    "respuestas":"Tenemos las siguientes categorias: gaming, oficina, notebook, 2 en 1 netbook,ultrabook"
+    },
+    {"tag":"oficina",
+    "preguntas":["necesito un computador para trabajar","trabajar","laborar","trabajo"],
+    "respuestas":"Tenemos los siguientes computadores para ello"
+    },
+    {"tag":"notebook",
+    "preguntas":["notebook","ligero"],
+    "respuestas":"Tenemos los siguientes computadores tipo notebook"
+    },
+    {"tag":"2en1",
+    "preguntas":["2 en 1","desmontable","convertible","dos en uno","tablet"],
+    "respuestas":"Tenemos los siguientes computadores tipo 2 en 1"
+    },
+    {"tag":"netbook",
+    "preguntas":["netbook","pequeño","mini","minilaptop"],
+    "respuestas":"Tenemos los siguientes computadores tipo netbook"
+    },
+    {"tag":"2en1",
+    "preguntas":["ultrabook","grande","amplio"],
+    "respuestas":"Tenemos los siguientes computadores tipo ultrabook"
+    }
+]
