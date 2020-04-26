@@ -44,17 +44,17 @@
                         </span>
                         
                          <div class="wrap-input100 validate-input" data-validate = "Correo Electronico">
-                             <h:inputText class="input100" pt:placeholder="Correo electrónico" value="#{userController.usuario.correo}" ></h:inputText>
+                             <h:inputText class="input100" pt:placeholder="Correo electrónico" value="#{usuarioController.current.correo}" ></h:inputText>
                             <span class="focus-input100" data-placeholder="&#xf207;"></span>
                         </div>
 
                         <div class="wrap-input100 validate-input" data-validate = "Ingresa tu usuario">
-                            <h:inputText class="input100" pt:placeholder="Usuario" value="#{userController.usuario.usuario}" ></h:inputText>
+                            <h:inputText class="input100" pt:placeholder="Usuario" value="#{usuarioController.current.usuario}" ></h:inputText>
                             <span class="focus-input100" data-placeholder="&#xf207;"></span>
                         </div>
 
                         <div class="wrap-input100 validate-input" data-validate="Contraseña">
-                            <h:inputSecret class="input100" pt:placeholder="Contraseña" value="#{userController.usuario.contraseña}" ></h:inputSecret>
+                            <h:inputSecret class="input100" pt:placeholder="Contraseña" value="#{usuarioController.current.contraseña}" ></h:inputSecret>
                             <span class="focus-input100" data-placeholder="&#xf191;"></span>
                         </div>
 
@@ -62,7 +62,7 @@
 
                         <div class="container-login100-form-btn">
                             
-                            <h:commandButton  class="login100-form-btn" action="#{userController.registrar()}" value="Registrarse"></h:commandButton>
+                            <h:commandButton  class="login100-form-btn" action="#{usuarioController.doUserCreate()}" value="Registrarse"></h:commandButton>
                         </div>
 
                         
