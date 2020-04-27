@@ -1,21 +1,9 @@
 from importaciones import *
-
-client = pymongo.MongoClient(
-    "mongodb+srv://Admin:admin@aliquid-dbxp3.azure.mongodb.net/Aliquid?retryWrites=true&w=majority")
-db = client.Aliquid
+from baseDatos import *
 
 words = []
 classes = []
 documents = []
-'''
-import spacy
-nlp = spacy.load('es_core_news_sm')
-a="buenos dias bailemos mucho"
-nlpa = nlp(a)
-lemmas = [tok.lemma_.lower() for tok in nlpa]
-print(lemmas)
-'''
-# stop_words = set(stopwords.words("spanish"))
 
 colPQRS = db["preguntasNuevas"]
 
@@ -33,14 +21,11 @@ for contPregunta in colPQRS.find():
 
 words = [lemmatizer.lemmatize(w.lower()) for w in words]  # por arreglar
 words = list(words)
-
 classes = sorted(list(set(classes)))
-
-
-
 
 pickle.dump(words,open('words.pkl','wb'))
 pickle.dump(classes,open('classes.pkl','wb'))
+
 
 # initializing training data
 training = []

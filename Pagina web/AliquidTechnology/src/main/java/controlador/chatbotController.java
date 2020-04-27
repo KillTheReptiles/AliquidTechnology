@@ -30,7 +30,7 @@ public class chatbotController implements Serializable {
         respuesta= respuesta+ "\n"+mensaje;
         String respuestaChat="";
         Client cliente= ClientBuilder.newClient();
-        WebTarget pagina=cliente.target(""+mensaje);
+        WebTarget pagina=cliente.target("http://127.0.0.1:5000/chatbot/"+mensaje);
         respuestaChat= pagina.request(MediaType.TEXT_PLAIN).get(String.class);
         respuesta= respuesta+"\n"+respuestaChat;
     }
