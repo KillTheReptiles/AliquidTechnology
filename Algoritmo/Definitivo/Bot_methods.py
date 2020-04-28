@@ -21,8 +21,7 @@ class ElBot:
             self.intents.append(contPregunta)
 
         self.categoriaFinal = ""
-        self.escogida=False
-
+        self.escogida = False
 
         self.especificaciones = {
 
@@ -84,29 +83,39 @@ class ElBot:
         return result
 
     def chatbot_response(self, msg):
-        ints = self.predict_class(msg, self.model)
-        tag = ints[0]['intent']
 
-        res = self.getResponse(ints, self.intents) + "\n"
-        print("<TAG> " + tag)
-
-        if (len(msg) == 1 and self.categoriaFinal!=''):
-            msg= int(msg)
+        if ((len(msg) == 2 or len(msg) == 1) and self.categoriaFinal != ''):
+            msg = int(msg)
             tipo_compu = db[self.categoriaFinal]
-            if(msg==1 or msg==2 or msg==3 or msg==4 or msg==5 or msg==6 or msg==7 or msg==8 or msg==9 or msg==10 or msg==11):
-                esp=self.especificaciones[msg]
-                print("")
+            if (
+                    msg == 1 or msg == 2 or msg == 3 or msg == 4 or msg == 5 or msg == 6 or msg == 7 or msg == 8 or msg == 9 or msg == 10 or msg == 11):
+                esp = self.especificaciones[msg]
+                res = ""
 
+                listEsp = []
 
                 for conteCompu in tipo_compu.find():
                     # db.inventory.find( { }, { "Product": 1, _id: 0 } )
 
-                    for especificacion in conteCompu[esp]:
-                        res = res + str(especificacion)
+                    dictKey = conteCompu[esp]
 
-                    res += "\n"
+                    listEsp.append([conteCompu['Product'], dictKey])
+
+                #                listEsp.sort()
+                res += "Aqui estan los primeros 5 computadores de tu interes:\n"
+
+                for i in listEsp[0:5]:
+                    res += "• Nombre: " + str(i[0]) + "\n- " + esp + ": " + str(i[1]) + "\n"
+                res += "\n"
             else:
-                res = "No haz marcado ninguna de las opciones :(!, pregunta de nuevo :D"
+                res = "No haz marcado ninguna de las opciones! :(, pregunta de nuevo :D"
+
+        else:
+            ints = self.predict_class(msg, self.model)
+            tag = ints[0]['intent']
+            print("<TAG> " + tag)
+
+            res = self.getResponse(ints, self.intents) + "\n"
 
         return res
 
@@ -115,8 +124,7 @@ if __name__ == '__main__':
     bot = ElBot()
     while True:
         msg = input()
-        if(len(msg)>1 ):
-
+        if (len(msg) > 2):
 
             ints = bot.predict_class(msg, bot.model)
             tag = ints[0]['intent']

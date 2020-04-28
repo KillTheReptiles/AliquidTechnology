@@ -5,9 +5,10 @@
  */
 package controlador;
 
+import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import modelo.Usuario;
@@ -18,8 +19,8 @@ import upb.edu.co.dao.UsuarioDAO;
  * @author VAL
  */
 @Named(value = "usuarioController")
-@Dependent
-public class usuarioController {
+@SessionScoped
+public class usuarioController implements Serializable{
 
     private DataModel <Usuario> items;
     private Usuario current;
