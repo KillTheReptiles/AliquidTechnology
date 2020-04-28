@@ -9,10 +9,23 @@ api = Api(app)
 class HelloWorld(Resource):
 
     def get(self, mensaje_usuario):
+        msg = mensaje_usuario
+        if (len(msg) > 2):
 
-        mensaje = bot.chatbot_response(mensaje_usuario)
+            ints = bot.predict_class(msg, bot.model)
+            tag = ints[0]['intent']
 
-        return 'Ali: '+ mensaje
+            if (tag != "saludos" and tag != "despedidas" and tag != "preguntasAmables" and tag != "sinRespuesta"):
+                bot.categoriaFinal = tag
+
+        res = bot.chatbot_response(msg)
+
+       # print(res)
+
+
+        #mensaje = bot.chatbot_response(mensaje_usuario)
+
+        return 'Ali: '+ res
 
 api.add_resource(HelloWorld, '/chatbot/<mensaje_usuario>')
 
