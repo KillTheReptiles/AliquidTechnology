@@ -13,6 +13,7 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import modelo.Usuario;
 import upb.edu.co.dao.UsuarioDAO;
+import util.AuthUtil;
 
 /**
  *
@@ -43,6 +44,9 @@ public class usuarioController implements Serializable{
     }
     
     public String doUserCreate(){
+        
+        String claveSegura = AuthUtil.crearClaveSegura(current.getContraseña());
+        current.setContraseña(claveSegura);
        
         ejbFacade.create(current);
          current = new Usuario();
