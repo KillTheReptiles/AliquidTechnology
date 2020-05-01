@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+        
+    <h:head>
+        <title>Facelet Title</title>
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{gamingController.items}" var="item" styleClass="table">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Product"/>
+                        </f:facet>
+                        <h:outputText value="#{item.product}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Weight"/>
+                        </f:facet>
+                        <h:outputText value="#{item.weight}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Inches"/>
+                        </f:facet>
+                        <h:outputText value="#{item.inches}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="OpSys"/>
+                        </f:facet>
+                        <h:outputText value="#{item.opSys}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Company"/>
+                        </f:facet>
+                        <h:outputText value="#{item.company}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Ram"/>
+                        </f:facet>
+                        <h:outputText value="#{item.ram}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Memory"/>
+                        </f:facet>
+                        <h:outputText value="#{item.memory}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Gpu"/>
+                        </f:facet>
+                        <h:outputText value="#{item.gpu}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="ScreenResolution"/>
+                        </f:facet>
+                        <h:outputText value="#{item.screenResolution}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cpu"/>
+                        </f:facet>
+                        <h:outputText value="#{item.cpu}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Priceeuros"/>
+                        </f:facet>
+                        <h:outputText value="#{item.priceeuros}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Indice"/>
+                        </f:facet>
+                        <h:outputText value="#{item.indice}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

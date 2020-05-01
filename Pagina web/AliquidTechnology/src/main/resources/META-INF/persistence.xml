@@ -4,6 +4,12 @@
   <persistence-unit name="Web_DBAccessPU" transaction-type="JTA">
     <jta-data-source>jdbc/DataSouceMariaDB</jta-data-source>
     <class>modelo.Usuario</class>
+    <class>modelo.ForWork</class>
+    <class>modelo.Gaming</class>
+    <class>modelo.Netbook</class>
+    <class>modelo.Notebook</class>
+    <class>modelo.TwoInOneConvertible</class>
+    <class>modelo.Ultrabook</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/aliquid"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
