@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.ejb.EJB;
 import upb.edu.co.dao.MongoDAO;
 import upb.edu.co.dao.UsuarioDAO;
+import util.AuthUtil;
 
 @Named(value = "userController")
 @SessionScoped
@@ -36,9 +37,9 @@ public class UserController implements Serializable {
 
     public String login() throws IOException {
         
-        
+        String claveSegura = AuthUtil.crearClaveSegura(usuario.getContraseña()); 
 
-        usuarioAutenticado = ejbFacade.authUser(usuario.getUsuario(), usuario.getContraseña());
+        usuarioAutenticado = ejbFacade.authUser(usuario.getUsuario(), claveSegura);
 
         if (usuarioAutenticado != null) {
 

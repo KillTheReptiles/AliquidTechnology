@@ -18,6 +18,12 @@
             <h:form>
                 <h1><h:outputText value="List"/></h1>
                 <h:dataTable value="#{twoinOneConvertibleController.items}" var="item" styleClass="table">
+                      <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Indice"/>
+                        </f:facet>
+                        <h:outputText value="#{item.indice}"/>
+                    </h:column>
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="Product"/>
@@ -84,12 +90,7 @@
                         </f:facet>
                         <h:outputText value="#{item.priceeuros}"/>
                     </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Indice"/>
-                        </f:facet>
-                        <h:outputText value="#{item.indice}"/>
-                    </h:column>
+                  
                 </h:dataTable>
             </h:form>
         </f:view>
