@@ -48,9 +48,28 @@
         </h:form>
         
         <h:form>
-            <h:commandButton value="ChatBot"  action="producto?faces-redirect=true"/>
+            <h:commandButton value="ChatBot"  action="producto?faces-redirect=true" styleClass="btn btn-info" />
         </h:form>
-            
+         
+        <h:form>
+            <h:commandButton value="ForWork" action="#{forWorkController.prepareList()}" styleClass="btn btn-warning"/>
+        </h:form>
+        
+        <h:form>
+            <h:commandButton value="Gaming" action="#{gamingController.prepareList()}" styleClass="btn btn-danger"/>
+        </h:form>
+        
+        <h:form>
+            <h:commandButton value="Netbook" action="#{netbookController.prepareList()}" styleClass="btn btn-warning"/>
+        </h:form>
+        
+        <h:form>
+            <h:commandButton value="TwoinOneConvertible" action="#{twoinOneConvertibleController.prepareList()}" styleClass="btn btn-danger"/>
+        </h:form>
+        
+        <h:form>
+            <h:commandButton value="Ultrabook" action="#{ultrabookController.prepareList()}" styleClass="btn btn-warning"/>
+        </h:form>
       
         <!-- Scripts -->
         <script src="assets/js/jquery.min.js"></script>
