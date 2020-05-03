@@ -1,39 +1,15 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version='1.0' encoding='UTF-8' ?> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <link rel="stylesheet" type="text/css" href="css/estilos.css"></link>
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
-        <title>Aliquid Tecnology</title>
-        
-        
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <!--===============================================================================================-->	
-        <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"/>
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css"/>
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css"/>
-        <!--===============================================================================================-->	
-        <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css"/>
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css"/>
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css"/>
-        <!--===============================================================================================-->	
-        <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css"/>
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="css/util.css"/>
-        <link rel="stylesheet" type="text/css" href="css/main.css"/>
+        <title>Aliquid Technology</title>
 
+
+        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -44,15 +20,23 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </h:head>
 
     <h:body>
 
+        <style>
+            html, body{
 
+
+
+                background:url(images/robot.jpg) center;
+                left: 400px;
+                width: 2100px;
+                background-repeat: no-repeat;
+                height: 650px;
+            }
+
+        </style>
         <div class="d-flex" id="wrapper">
 
             <!-- Sidebar -->
@@ -62,7 +46,8 @@
 
 
 
- <h:form>
+
+                    <h:form>
                         <h:commandButton value="Administrar usuario" action="#{usuarioController.prepareList()}" styleClass="list-group-item list-group-item-action bg-light"/>
                     </h:form>
 
@@ -96,46 +81,40 @@
 
             <!-- Page Content -->
             <div id="page-content-wrapper">
-               
-
-
-            <h:form class="chatbot" id="formulario">
-
-            <h4>ALI TE AYUDA</h4>
-            <h:inputTextarea class="chat" id="respuesta" value="#{chatbotController.respuesta}" cols="50" rows="20" readonly="readonly">
-            
-            
-            </h:inputTextarea>
-            <br></br>
-            <h:inputText class="mensajes" id="mensaje" value="#{chatbotController.mensaje}"/><br/>
-
-
-
-            <h:commandButton class="Button" id="Boton" value="Enviar" action="#{chatbotController.sendmessage}">
-                <f:ajax class="control" execute=":formulario:mensaje" render=":formulario:respuesta" /> 
-            </h:commandButton>
-        </h:form> 
-            <style>
-            html, body{
-                
-                height: 600px;
-                display: block;
-                background:url(https://images8.alphacoders.com/362/thumb-1920-362134.jpg) center center;
-                -webkit-background-size: cover;
-                -moz-background-size: cover;
-                -o-background-size: cover;
-                background-size: cover;
-                background-repeat: no-repeat;
-                transition: all .2s;
-                
-            }
-
-        </style>
-
 
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+                        <h:form class="chatbot" id="formulario">
+
+                            <h4>ALI TE AYUDA</h4>
+                            <h:inputTextarea class="chat" id="respuesta" value="#{chatbotController.respuesta}" cols="50" rows="19" readonly="readonly">
+
+
+                            </h:inputTextarea>
+                            <br></br>
+                            <h:inputText class="mensajes" id="mensaje" value="#{chatbotController.mensaje}" /><br/>
+
+
+
+                            <h:commandButton class="Button" id="Boton" value="Enviar" action="#{chatbotController.sendmessage}">
+                                <f:ajax class="control" execute=":formulario:mensaje" render=":formulario:respuesta" /> 
+                            </h:commandButton>
+                            
+                            <br></br>
+                            <h4>Calificame</h4>
+
+                            <h:selectOneRadio>
+                                <f:selectItem itemValue="5" itemLabel="5" />
+                                <f:selectItem itemValue="4" itemLabel="4" />
+                                <f:selectItem itemValue="3" itemLabel="3" />
+                                <f:selectItem itemValue="2" itemLabel="2" />
+                                <f:selectItem itemValue="1" itemLabel="1" />
+                            </h:selectOneRadio>
+                        </h:form> 
+                       
 
 
                     </div>
@@ -158,7 +137,7 @@
 
         </div>
 
-       
+
 
     </h:body>
 
