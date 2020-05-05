@@ -106,13 +106,16 @@
                             <br></br>
                             <h4>Calificame</h4>
 
-                            <h:selectOneRadio>
+                            <h:selectOneRadio value="#{estrellasController.calificacionActual}">
                                 <f:selectItem itemValue="5" itemLabel="5" />
                                 <f:selectItem itemValue="4" itemLabel="4" />
                                 <f:selectItem itemValue="3" itemLabel="3" />
                                 <f:selectItem itemValue="2" itemLabel="2" />
                                 <f:selectItem itemValue="1" itemLabel="1" />
                             </h:selectOneRadio>
+                           
+                            <h:commandButton value="Enviar" action="#{estrellasController.ActualizarCal}" styleClass="list-group-item list-group-item-action bg-light"/>
+              
                         </h:form> 
                        
 
