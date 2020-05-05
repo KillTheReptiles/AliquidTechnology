@@ -11,7 +11,9 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+import modelo.Estrellas;
 import modelo.Usuario;
+import upb.edu.co.dao.EstrellasDAO;
 import upb.edu.co.dao.UsuarioDAO;
 import util.AuthUtil;
 
@@ -25,9 +27,14 @@ public class usuarioController implements Serializable{
 
     private DataModel <Usuario> items;
     private Usuario current;
+     private Estrellas currentEstrellas;
+    
     @EJB
     UsuarioDAO ejbFacade;
 
+     @EJB
+    EstrellasDAO ejbFacadeEstrellas;
+    
     
     public usuarioController() {
         
@@ -47,9 +54,15 @@ public class usuarioController implements Serializable{
         
         String claveSegura = AuthUtil.crearClaveSegura(current.getContraseña());
         current.setContraseña(claveSegura);
-       
+        
+        currentEstrellas.setContador(0);
+        currentEstrellas.setSumaCalificaciones(0);
+        currentEstrellas.setCorreoUsuario(current.getCorreo());
+        ejbFacadeEstrellas.create(currentEstrellas);
+
         ejbFacade.create(current);
-         current = new Usuario();
+        current = new Usuario();
+        currentEstrellas = new Estrellas();
 
         return"index?faces-redirect=true";
 
@@ -57,7 +70,7 @@ public class usuarioController implements Serializable{
     
     public String prepareCreate(){
         current = new Usuario();
-
+        currentEstrellas = new Estrellas();
         return "registro?faces-redirect=true";
     }
     
