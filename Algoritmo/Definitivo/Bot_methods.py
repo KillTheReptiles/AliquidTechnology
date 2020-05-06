@@ -44,7 +44,6 @@ class ElBot:
         sentence_words = [self.lemmatizer.lemmatize(word.lower()) for word in sentence_words]
         return sentence_words
 
-
     def bow(self, sentence, words, show_details=True):
 
         sentence_words = self.clean_up_sentence(sentence)
@@ -105,7 +104,7 @@ class ElBot:
                 res += "Aqui estan los primeros 5 computadores de tu interes:\n"
 
                 for i in listEsp[0:5]:
-                    res += "• Nombre: " + str(i[0]) + "\n- " + esp + ": " + str(i[1]) + "\n"
+                    res += "* Nombre: " + str(i[0]) + "\n- " + esp + ": " + str(i[1]) + "\n"
                 res += "\n"
             else:
                 res = "No haz marcado ninguna de las opciones! :(, pregunta de nuevo :D"
@@ -115,7 +114,7 @@ class ElBot:
             tag = ints[0]['intent']
             print("<TAG> " + tag)
 
-            res = self.getResponse(ints, self.intents) + "\n"
+            res = self.getResponse(ints, self.intents) + ""
 
         return res
 

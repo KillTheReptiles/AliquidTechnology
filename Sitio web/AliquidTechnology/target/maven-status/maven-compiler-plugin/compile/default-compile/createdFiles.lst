@@ -11,6 +11,7 @@ modelo\Estrellas.class
 controlador\chatbotController.class
 controlador\exceptions\IllegalOrphanException.class
 controlador\NetbookController.class
+modelo\Estadisticas.class
 modelo\Gaming.class
 upb\edu\co\dao\EstrellasDAO.class
 controlador\GamingController.class

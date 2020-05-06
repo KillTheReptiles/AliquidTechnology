@@ -1,10 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' ?> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
 
+
+
+    
     <h:head>
         <title>Aliquid Technology</title>
 
@@ -37,6 +43,8 @@
             }
 
         </style>
+
+
         <div class="d-flex" id="wrapper">
 
             <!-- Sidebar -->
@@ -75,6 +83,22 @@
                         <h:commandButton value="Compuadores Ultrabook" action="#{ultrabookController.prepareList()}" styleClass="list-group-item list-group-item-action bg-light"/>
                     </h:form>
 
+                    <br/><br/>
+                    <h:form>
+                        <h4>Calificame</h4>
+
+                        <h:selectOneRadio value="#{estrellasController.calificacionActual}">
+                            <f:selectItem itemValue="5" itemLabel="5" />
+                            <f:selectItem itemValue="4" itemLabel="4" />
+                            <f:selectItem itemValue="3" itemLabel="3" />
+                            <f:selectItem itemValue="2" itemLabel="2" />
+                            <f:selectItem itemValue="1" itemLabel="1" />
+                        </h:selectOneRadio>
+
+                        <h:commandButton value="Enviar" action="#{estrellasController.ActualizarCal}" styleClass="list-group-item list-group-item-action bg-light"/>
+
+                    </h:form>
+
                 </div>
             </div>
             <!-- /#sidebar-wrapper -->
@@ -90,34 +114,25 @@
                         <h:form class="chatbot" id="formulario">
 
                             <h4>ALI TE AYUDA</h4>
-                            <h:inputTextarea class="chat" id="respuesta" value="#{chatbotController.respuesta}" cols="50" rows="19" readonly="readonly">
+                            
+                            <h:inputTextarea  class="control" id="respuesta" value="#{chatbotController.respuesta}" cols="51" rows="19" readonly="true" role="textbox"/>
+                                
 
 
-                            </h:inputTextarea>
+
                             <br></br>
                             <h:inputText class="mensajes" id="mensaje" value="#{chatbotController.mensaje}" /><br/>
 
 
 
-                            <h:commandButton class="Button" id="Boton" value="Enviar" action="#{chatbotController.sendmessage}">
+                            <h:commandButton class="Button" id="Boton" value="Enviar" action="#{chatbotController.sendmessage}" styleClass="list-group-item list-group-item-action bg-light">
                                 <f:ajax class="control" execute=":formulario:mensaje" render=":formulario:respuesta" /> 
                             </h:commandButton>
-                            
-                            <br></br>
-                            <h4>Calificame</h4>
 
-                            <h:selectOneRadio value="#{estrellasController.calificacionActual}">
-                                <f:selectItem itemValue="5" itemLabel="5" />
-                                <f:selectItem itemValue="4" itemLabel="4" />
-                                <f:selectItem itemValue="3" itemLabel="3" />
-                                <f:selectItem itemValue="2" itemLabel="2" />
-                                <f:selectItem itemValue="1" itemLabel="1" />
-                            </h:selectOneRadio>
-                           
-                            <h:commandButton value="Enviar" action="#{estrellasController.ActualizarCal}" styleClass="list-group-item list-group-item-action bg-light"/>
-              
+                            <br></br>
+
                         </h:form> 
-                       
+
 
 
                     </div>
