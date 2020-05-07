@@ -6,11 +6,11 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    
 
 
 
-    
+
+
     <h:head>
         <title>Aliquid Technology</title>
 
@@ -30,6 +30,8 @@
 
     <h:body>
 
+
+
         <style>
             html, body{
 
@@ -44,6 +46,15 @@
 
         </style>
 
+        <style>
+
+            html, body{
+
+                background-color: #E2DDE5;
+            }
+        </style>
+
+
 
         <div class="d-flex" id="wrapper">
 
@@ -55,6 +66,9 @@
 
 
 
+                    <h:form>
+                        <h:commandButton value="Inicio" action="dashboard.xhtml" styleClass="list-group-item list-group-item-action bg-light"/>
+                    </h:form>
                     <h:form>
                         <h:commandButton value="Administrar usuario" action="#{usuarioController.prepareList()}" styleClass="list-group-item list-group-item-action bg-light"/>
                     </h:form>
@@ -81,6 +95,10 @@
 
                     <h:form>
                         <h:commandButton value="Compuadores Ultrabook" action="#{ultrabookController.prepareList()}" styleClass="list-group-item list-group-item-action bg-light"/>
+                    </h:form>
+
+                    <h:form>
+                        <h:commandButton value="Estadisticas" action="#{estrellasController.prepareList()}" styleClass="list-group-item list-group-item-action bg-light"/>
                     </h:form>
 
                     <br/><br/>
@@ -114,9 +132,9 @@
                         <h:form class="chatbot" id="formulario">
 
                             <h4>ALI TE AYUDA</h4>
-                            
+
                             <h:inputTextarea  class="control" id="respuesta" value="#{chatbotController.respuesta}" cols="51" rows="19" readonly="true" role="textbox"/>
-                                
+
 
 
 

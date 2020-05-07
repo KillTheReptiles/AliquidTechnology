@@ -5,7 +5,7 @@ import numpy as np
 # from keras.models import load_model
 from tensorflow.keras.models import load_model
 from baseDatos import db
-
+import random
 
 class ElBot:
     def __init__(self):
@@ -100,12 +100,22 @@ class ElBot:
 
                     listEsp.append([conteCompu['Product'], dictKey])
 
-                #                listEsp.sort()
-                res += "Aqui estan los primeros 5 computadores de tu interes:\n"
+
+                '''
+                num_random = random.randrange(len(listEsp))
+                pc = listEsp[num_random]
+                res += " +Nombre: " + str(pc[0]) + "       - " + esp + ": " + str(pc[1]) + "       "
+
+                '''
+
+                res += "Aqui estan los primeros 5 computadores de tu interes: "
 
                 for i in listEsp[0:5]:
-                    res += "* Nombre: " + str(i[0]) + "\n- " + esp + ": " + str(i[1]) + "\n"
-                res += "\n"
+
+                    res += " +Nombre: " + str(i[0]) + "       - " + esp + ": " + str(i[1]) + "       "
+
+                res += "             "
+
             else:
                 res = "No haz marcado ninguna de las opciones! :(, pregunta de nuevo :D"
 

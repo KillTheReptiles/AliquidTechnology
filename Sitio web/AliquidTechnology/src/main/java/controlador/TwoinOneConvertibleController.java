@@ -40,9 +40,9 @@ public class TwoinOneConvertibleController implements Serializable {
         return items;
     }
     
-    public String prepareList(){
+  public String prepareList(){
         items=new ListDataModel<TwoInOneConvertible>(ejbFacade.findAll());
-        return "TwoInOneConvertible?faces-redirect=true";
+        return "TwoinOneConvertible?faces-redirect=true";
     }
     
     
