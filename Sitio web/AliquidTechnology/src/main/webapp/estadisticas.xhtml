@@ -3,11 +3,47 @@
 <html xmlns="http://www.w3c.org/1999/xhtml"
         xmlns:h="http://java.sun.com/jsf/html"
         xmlns:p="http://primefaces.org/ui"
-        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </h:head>
     <h:body>
-        <p:chart type="bar" model="#{bean.model}" />
+         <!--<p:chart type="bar" model="#{bean.model}" />-->
+        <f:view> 
+
+
+            <h:form>
+                <h1><h:outputText value="Estadisticas de Usuarios" styleClass="table"/></h1>
+                <h:dataTable value="#{estrellasController.items}" var="item" styleClass="table">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Correo"/>
+                        </f:facet>
+                        <h:outputText value="#{item.correoUsuario}"/>
+                    </h:column>
+                    
+                   
+                </h:dataTable>
+            </h:form>
+            
+             <h:form>
+                <h1><h:outputText value="Estadisticas de Usuarios" styleClass="table"/></h1>
+                <h:dataTable value="#{estrellasController.prom}" var="item" styleClass="table">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Calificacion Promedio"/>
+                        </f:facet>
+                        <h:outputText value="#{item}"/>
+                    </h:column>
+                    
+                   
+                </h:dataTable>
+            </h:form>
+        </f:view>
     </h:body>
 </html>
