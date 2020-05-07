@@ -28,6 +28,13 @@
 
     <h:body>
 
+        <style>
+
+            html, body{
+
+                background-color: #E2DDE5;
+            }
+        </style>
 
         <div class="d-flex" id="wrapper">
 
@@ -38,7 +45,9 @@
 
 
 
-
+                    <h:form>
+                        <h:commandButton value="Inicio" action="dashboard.xhtml" styleClass="list-group-item list-group-item-action bg-light"/>
+                    </h:form>
                     <h:form>
                         <h:commandButton value="Administrar usuario" action="#{usuarioController.prepareList()}" styleClass="list-group-item list-group-item-action bg-light"/>
                     </h:form>
@@ -67,6 +76,10 @@
                         <h:commandButton value="Compuadores Ultrabook" action="#{ultrabookController.prepareList()}" styleClass="list-group-item list-group-item-action bg-light"/>
                     </h:form>
 
+                    <h:form>
+                        <h:commandButton value="Estadisticas" action="#{estrellasController.prepareList()}" styleClass="list-group-item list-group-item-action bg-light"/>
+                    </h:form>
+
                 </div>
             </div>
             <!-- /#sidebar-wrapper -->
@@ -74,94 +87,90 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
 
-                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                        <f:view>
+                <f:view>
 
 
-                            <h:form>
-                                <h1><h:outputText value="List"/></h1>
-                                <h:dataTable value="#{ultrabookController.items}" var="item" styleClass="table">
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Indice"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.indice}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Product"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.product}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Weight"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.weight}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Inches"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.inches}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="OpSys"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.opSys}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Company"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.company}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Ram"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.ram}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Memory"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.memory}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Gpu"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.gpu}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="ScreenResolution"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.screenResolution}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Cpu"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.cpu}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Priceeuros"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.priceeuros}"/>
-                                    </h:column>
+                    <h:form>
+                        <h1 align="center"><h:outputText  value="Lista de computadores Ultrabook"/></h1>
+                        <br></br>
+                        <h:dataTable value="#{ultrabookController.items}" var="item" styleClass="table">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Indice"/>
+                                </f:facet>
+                                <h:outputText value="#{item.indice}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Product"/>
+                                </f:facet>
+                                <h:outputText value="#{item.product}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Weight"/>
+                                </f:facet>
+                                <h:outputText value="#{item.weight}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Inches"/>
+                                </f:facet>
+                                <h:outputText value="#{item.inches}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="OpSys"/>
+                                </f:facet>
+                                <h:outputText value="#{item.opSys}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Company"/>
+                                </f:facet>
+                                <h:outputText value="#{item.company}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Ram"/>
+                                </f:facet>
+                                <h:outputText value="#{item.ram}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Memory"/>
+                                </f:facet>
+                                <h:outputText value="#{item.memory}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Gpu"/>
+                                </f:facet>
+                                <h:outputText value="#{item.gpu}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="ScreenResolution"/>
+                                </f:facet>
+                                <h:outputText value="#{item.screenResolution}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Cpu"/>
+                                </f:facet>
+                                <h:outputText value="#{item.cpu}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Priceeuros"/>
+                                </f:facet>
+                                <h:outputText value="#{item.priceeuros}"/>
+                            </h:column>
 
-                                </h:dataTable>
-                            </h:form>
-                        </f:view>
-                    </div>
-                </nav>
+                        </h:dataTable>
+                    </h:form>
+                </f:view>
+
                 <ui:insert name="contenido">
 
                 </ui:insert>

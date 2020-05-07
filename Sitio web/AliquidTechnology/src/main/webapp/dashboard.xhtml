@@ -23,17 +23,46 @@
 
     <h:body>
 
+        <style>
+
+            html, body{
+
+
+
+                background:url(images/pc.png) center;
+             
+                
+
+            }
+
+        </style>
+
+
+        <div align="center" >
+            <h4 style="color:#FFF">
+                TE AYUDAMOS A ENCONTRAR EL COMPUTADOR PERFECTO
+            </h4>
+        </div>
+
+
+
 
         <div class="d-flex" id="wrapper">
 
+
+
             <!-- Sidebar -->
             <div class="bg-light border-right" id="sidebar-wrapper">
+
+
 
                 <div class="list-group list-group-flush">
 
 
 
-
+                    <h:form>
+                        <h:commandButton value="Inicio" action="dashboard.xhtml" styleClass="list-group-item list-group-item-action bg-light"/>
+                    </h:form>
                     <h:form>
                         <h:commandButton value="Administrar usuario" action="#{usuarioController.prepareList()}" styleClass="list-group-item list-group-item-action bg-light"/>
                     </h:form>
@@ -61,9 +90,9 @@
                     <h:form>
                         <h:commandButton value="Compuadores Ultrabook" action="#{ultrabookController.prepareList()}" styleClass="list-group-item list-group-item-action bg-light"/>
                     </h:form>
-                    
-                     <h:form>
-                         <h:commandButton value="Estadisticas" action="#{estrellasController.prepareList()}" styleClass="list-group-item list-group-item-action bg-light"/>
+
+                    <h:form>
+                        <h:commandButton value="Estadisticas" action="#{estrellasController.prepareList()}" styleClass="list-group-item list-group-item-action bg-light"/>
                     </h:form>
 
                 </div>
@@ -73,9 +102,9 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
 
-                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <nav >
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div  id="navbarSupportedContent">
 
 
                     </div>
@@ -97,7 +126,6 @@
 
 
         </div>
-
 
 
     </h:body>
